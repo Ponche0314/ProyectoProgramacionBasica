@@ -8,7 +8,6 @@ using namespace std;
 
 int opción = 0, prcUnit = 0, opciónTrat = 0, numCitaActual = 1, mod = 0, elim = 0;
 bool opciónválida = true, inputIncorrecto = false;
-char respuesta;
 
 string nombrePacienteTemp, fechaCitaTemp, horaCitaTemp;
 int tratElegidoTemp, cantTratTemp;
@@ -441,6 +440,9 @@ int main() {
 				cout << "La lista de citas vigentes son:\n";
 				while (citaAux) {
 					cout << setw(3) << setfill('0') << citaAux->numCita << "\n";
+					cout << "Nombre del paciente: " << citaAux->nomCliente << "\n";
+					cout << "Fecha de la cita: " << citaAux->fechaCita << "\n";
+					cout << "Hora de la cita: " << citaAux->horaCita << "\n\n";
 					citaAux = citaAux->siguiente;
 				}
 
@@ -626,6 +628,9 @@ int main() {
 				cout << "La lista de citas vigentes son:\n";
 				while (citaAux) {
 					cout << setw(3) << setfill('0') << citaAux->numCita << "\n";
+					cout << "Nombre del paciente: " << citaAux->nomCliente << "\n";
+					cout << "Fecha de la cita: " << citaAux->fechaCita << "\n";
+					cout << "Hora de la cita: " << citaAux->horaCita << "\n\n";
 					citaAux = citaAux->siguiente;
 				}
 
