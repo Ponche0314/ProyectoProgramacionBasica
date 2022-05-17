@@ -437,7 +437,7 @@ int main() {
 			}
 			else {
 
-				cout << "La lista de citas vigentes son:\n";
+				cout << "La lista de citas vigentes son:\n\n";
 				while (citaAux) {
 					cout << setw(3) << setfill('0') << citaAux->numCita << "\n";
 					cout << "Nombre del paciente: " << citaAux->nomCliente << "\n";
@@ -446,163 +446,167 @@ int main() {
 					citaAux = citaAux->siguiente;
 				}
 
-				cout << "\nIngrese el número de cita que desee modificar: ";
+				cout << "Ingrese el número de cita que desee modificar (Digite '0' si desea volver al menú principal): ";
 				cin >> mod;
 
-				citaAux = primerCita;
+				if (mod != 0) {
 
-				while (citaAux) {
+					citaAux = primerCita;
 
-					if (citaAux->numCita == mod) {
-						citaAModificar = citaAux;
+					while (citaAux) {
+
+						if (citaAux->numCita == mod) {
+							citaAModificar = citaAux;
+						}
+
+						citaAux = citaAux->siguiente;
 					}
 
-					citaAux = citaAux->siguiente;
-				}
-
-				if (!citaAModificar) {
-					inputIncorrecto = true;
-				}
-
-				if (inputIncorrecto) {
-					cout << "\nIntroduza un número de cita de la lista proporcionada.\n";
-					system("pause");
-					cout << "\n";
-				}
-				else {
-					cout << "\nElija qué dato de esa cita quiere modificar:\n\n";
-					cout << "1. Nombre del paciente.\n";
-					cout << "2. Fecha de la cita.\n";
-					cout << "3. Hora de la cita.\n";
-					cout << "4. Tratamiento elegido.\n";
-					cout << "5. Cantidad del tratamiento elegido.\n\n";
-
-					cout << "Digite una opción: ";
-					cin >> opción;
-
-					switch (opción) {
-
-					case 1: {
-						system("cls");
-
-						cout << "Introduzca el nombre del paciente: ";
-						cin.ignore();
-						getline(cin, citaAModificar->nomCliente);
-						break;
+					if (!citaAModificar) {
+						inputIncorrecto = true;
 					}
 
-					case 2: {
-						system("cls");
-						cout << "Ingrese la fecha de la cita en formato dd/mm/aaaa (ej. 10/12/2022): ";
-						cin >> citaAModificar->fechaCita;
-						break;
-					}
-
-					case 3: {
-						system("cls");
-						cout << "Ingrese la hora de la cita en formato 24 horas (ej. 14:30): ";
-						cin >> citaAModificar->horaCita;
-						break;
-					}
-
-					case 4: {
-						system("cls");
-
-						cout << "1. Diagnóstico dental.\n";
-						cout << "Descripción del tratamiento: En odontología prevenir es curar. Un diagnóstico a tiempo te ayudará a evitar patologías dentales graves en el futuro.\n";
-						cout << "Precio unitario del tratamiento: 150 pesos.\n\n";
-
-						cout << "2. Blanqueamiento dental.\n";
-						cout << "Descripción del tratamiento: El blanqueamiento dental es uno de los tratamientos estéticos más seguros y eficaces, utilizado para aclarar los dientes de manera uniforme haciendo que tu dentadura se vea lo más blanca posible.\n";
-						cout << "Precio unitario del tratamiento: 1500 pesos.\n\n";
-
-						cout << "3. Aplicación de coronas o carillas.\n";
-						cout << "Descripción del tratamiento: Di adiós a los dientes dañados, opta por nuestras coronas de zirconia y carillas dentales.\n";
-						cout << "Precio unitario del tratamiento: 800 pesos.\n\n";
-
-						cout << "4. Endodoncia.\n";
-						cout << "Descripción del tratamiento: Una endodoncia consiste en la extracción de la pulpa, un pequeño tejido situado en el centro del diente, cuando este es removido, el espacio restante se limpia, remoldea y rellena.\n";
-						cout << "Precio unitario del tratamiento: 1800 pesos.\n\n";
-
-						cout << "5. Implantes dentales.\n";
-						cout << "Descripción del tratamiento: Rediseñamos tu imagen y salud bucal con implantes dentales siendo la forma más natural de reponer un diente.\n";
-						cout << "Precio unitario del tratamiento: 1800 pesos.\n\n";
-
-						cout << "6. Ortodoncia.\n";
-						cout << "Descripción del tratamiento: La ortodoncia se encarga de corregir la posición de los dientes tomando en cuenta la estructura facial, estética dental y la salud articular.\n";
-						cout << "Precio unitario del tratamiento: 1500 pesos.\n\n";
-
-						cout << "7. Ajuste de brackets.\n";
-						cout << "Descripción del tratamiento: Las sesiones de ajustes son necesarios para cambiar bandas elásticas desgastadas, comprobar cómo evoluciona la dentadura y efectuar correcciones en los alambres.\n";
-						cout << "Precio unitario del tratamiento: 150 pesos.\n\n";
-
-						do {
-							cout << "Elija un tratamiento: ";
-							cin >> opciónTrat;
-
-							switch (opciónTrat) {
-							case 1: {
-								opciónválida = false;
-								citaAModificar->tratElegido = 1;
-								break;
-							}
-
-							case 2: {
-								opciónválida = false;
-								citaAModificar->tratElegido = 2;
-								break;
-							}
-
-							case 3: {
-								opciónválida = false;
-								citaAModificar->tratElegido = 3;
-								break;
-							}
-
-							case 4: {
-								opciónválida = false;
-								citaAModificar->tratElegido = 4;
-								break;
-							}
-
-							case 5: {
-								opciónválida = false;
-								citaAModificar->tratElegido = 5;
-								break;
-							}
-
-							case 6: {
-								opciónválida = false;
-								citaAModificar->tratElegido = 6;
-								break;
-							}
-
-							case 7: {
-								opciónválida = false;
-								citaAModificar->tratElegido = 7;
-								break;
-							}
-
-							default: cout << "\nDigite una opción válida.";
-
-							}
-						} while (opciónválida);
-
-						break;
-					}
-
-					case 5: {
-						system("cls");
-						cout << "Ingrese cantidad del tratamiento: ";
-						cin >> citaAModificar->cantTrat;
-						break;
-					}
-
-					default:
-						cout << "\nIngrese un dígito válido.";
+					if (inputIncorrecto) {
+						cout << "\nIntroduza un número de cita de la lista proporcionada.\n";
 						system("pause");
+						cout << "\n";
+					}
+					else {
+						cout << "\nElija qué dato de esa cita quiere modificar:\n\n";
+						cout << "1. Nombre del paciente.\n";
+						cout << "2. Fecha de la cita.\n";
+						cout << "3. Hora de la cita.\n";
+						cout << "4. Tratamiento elegido.\n";
+						cout << "5. Cantidad del tratamiento elegido.\n\n";
+
+						cout << "Digite una opción: ";
+						cin >> opción;
+
+						switch (opción) {
+
+						case 1: {
+							system("cls");
+
+							cout << "Introduzca el nombre del paciente: ";
+							cin.ignore();
+							getline(cin, citaAModificar->nomCliente);
+							break;
+						}
+
+						case 2: {
+							system("cls");
+							cout << "Ingrese la fecha de la cita en formato dd/mm/aaaa (ej. 10/12/2022): ";
+							cin >> citaAModificar->fechaCita;
+							break;
+						}
+
+						case 3: {
+							system("cls");
+							cout << "Ingrese la hora de la cita en formato 24 horas (ej. 14:30): ";
+							cin >> citaAModificar->horaCita;
+							break;
+						}
+
+						case 4: {
+							system("cls");
+
+							cout << "1. Diagnóstico dental.\n";
+							cout << "Descripción del tratamiento: En odontología prevenir es curar. Un diagnóstico a tiempo te ayudará a evitar patologías dentales graves en el futuro.\n";
+							cout << "Precio unitario del tratamiento: 150 pesos.\n\n";
+
+							cout << "2. Blanqueamiento dental.\n";
+							cout << "Descripción del tratamiento: El blanqueamiento dental es uno de los tratamientos estéticos más seguros y eficaces, utilizado para aclarar los dientes de manera uniforme haciendo que tu dentadura se vea lo más blanca posible.\n";
+							cout << "Precio unitario del tratamiento: 1500 pesos.\n\n";
+
+							cout << "3. Aplicación de coronas o carillas.\n";
+							cout << "Descripción del tratamiento: Di adiós a los dientes dañados, opta por nuestras coronas de zirconia y carillas dentales.\n";
+							cout << "Precio unitario del tratamiento: 800 pesos.\n\n";
+
+							cout << "4. Endodoncia.\n";
+							cout << "Descripción del tratamiento: Una endodoncia consiste en la extracción de la pulpa, un pequeño tejido situado en el centro del diente, cuando este es removido, el espacio restante se limpia, remoldea y rellena.\n";
+							cout << "Precio unitario del tratamiento: 1800 pesos.\n\n";
+
+							cout << "5. Implantes dentales.\n";
+							cout << "Descripción del tratamiento: Rediseñamos tu imagen y salud bucal con implantes dentales siendo la forma más natural de reponer un diente.\n";
+							cout << "Precio unitario del tratamiento: 1800 pesos.\n\n";
+
+							cout << "6. Ortodoncia.\n";
+							cout << "Descripción del tratamiento: La ortodoncia se encarga de corregir la posición de los dientes tomando en cuenta la estructura facial, estética dental y la salud articular.\n";
+							cout << "Precio unitario del tratamiento: 1500 pesos.\n\n";
+
+							cout << "7. Ajuste de brackets.\n";
+							cout << "Descripción del tratamiento: Las sesiones de ajustes son necesarios para cambiar bandas elásticas desgastadas, comprobar cómo evoluciona la dentadura y efectuar correcciones en los alambres.\n";
+							cout << "Precio unitario del tratamiento: 150 pesos.\n\n";
+
+							do {
+								cout << "Elija un tratamiento: ";
+								cin >> opciónTrat;
+
+								switch (opciónTrat) {
+								case 1: {
+									opciónválida = false;
+									citaAModificar->tratElegido = 1;
+									break;
+								}
+
+								case 2: {
+									opciónválida = false;
+									citaAModificar->tratElegido = 2;
+									break;
+								}
+
+								case 3: {
+									opciónválida = false;
+									citaAModificar->tratElegido = 3;
+									break;
+								}
+
+								case 4: {
+									opciónválida = false;
+									citaAModificar->tratElegido = 4;
+									break;
+								}
+
+								case 5: {
+									opciónválida = false;
+									citaAModificar->tratElegido = 5;
+									break;
+								}
+
+								case 6: {
+									opciónválida = false;
+									citaAModificar->tratElegido = 6;
+									break;
+								}
+
+								case 7: {
+									opciónválida = false;
+									citaAModificar->tratElegido = 7;
+									break;
+								}
+
+								default: cout << "\nDigite una opción válida.";
+
+								}
+							} while (opciónválida);
+
+							break;
+						}
+
+						case 5: {
+							system("cls");
+							cout << "Ingrese cantidad del tratamiento: ";
+							cin >> citaAModificar->cantTrat;
+							break;
+						}
+
+						default:
+							cout << "\nIngrese un dígito válido.";
+							system("pause");
+						}
 					}
 				}
+
 			}
 
 			inputIncorrecto = false;
@@ -625,7 +629,7 @@ int main() {
 			}
 			else {
 
-				cout << "La lista de citas vigentes son:\n";
+				cout << "La lista de citas vigentes son:\n\n";
 				while (citaAux) {
 					cout << setw(3) << setfill('0') << citaAux->numCita << "\n";
 					cout << "Nombre del paciente: " << citaAux->nomCliente << "\n";
@@ -634,82 +638,84 @@ int main() {
 					citaAux = citaAux->siguiente;
 				}
 
-				cout << "\nIngrese el número de cita que desea eliminar: ";
+				cout << "Ingrese el número de cita que desea eliminar (Digite '0' si desea volver al menú principal): ";
 				cin >> elim;
 
-				citaAux = primerCita;
+				if (elim != 0) {
+					citaAux = primerCita;
 
-				while (citaAux) {
+					while (citaAux) {
 
-					if (citaAux->numCita == elim) {
-						citaAEliminar = citaAux;
-					}
-
-					citaAux = citaAux->siguiente;
-				}
-
-				if (!citaAEliminar) {
-					inputIncorrecto = true;
-				}
-
-				if (inputIncorrecto) {
-					cout << "\nIntroduza un número de cita de la lista proporcionada.\n";
-					system("pause");
-					cout << "\n";
-				}
-				else {
-
-					if (citaAEliminar == primerCita) {
-
-						if (citaAEliminar->siguiente) {
-							primerCita = citaAEliminar->siguiente;
+						if (citaAux->numCita == elim) {
+							citaAEliminar = citaAux;
 						}
 
+						citaAux = citaAux->siguiente;
 					}
-					else if (citaAEliminar == últimaCita) {
 
-						if (citaAEliminar->anterior) {
-							últimaCita = citaAEliminar->anterior;
-							citaAEliminar->anterior->siguiente = NULL;
-						}
+					if (!citaAEliminar) {
+						inputIncorrecto = true;
+					}
 
+					if (inputIncorrecto) {
+						cout << "\nIntroduza un número de cita de la lista proporcionada.\n";
+						system("pause");
+						cout << "\n";
 					}
 					else {
 
-						citaAEliminar->anterior->siguiente = citaAEliminar->siguiente;
-						citaAEliminar->siguiente->anterior = citaAEliminar->anterior;
+						if (citaAEliminar == primerCita) {
 
-					}
-
-					if (citaAEliminar == primerCita && citaAEliminar == últimaCita) {
-
-						citaAux = primerCita;
-
-						while (citaAux) {
-
-							if (citaAEliminar->numCita == citaAux->numCita) {
-								citaAux = nullptr;
-								primerCita = nullptr;
+							if (citaAEliminar->siguiente) {
+								primerCita = citaAEliminar->siguiente;
 							}
 
-							while (citaAux) {
-								citaAux = citaAux->siguiente;
+						}
+						else if (citaAEliminar == últimaCita) {
+
+							if (citaAEliminar->anterior) {
+								últimaCita = citaAEliminar->anterior;
+								citaAEliminar->anterior->siguiente = NULL;
 							}
+
+						}
+						else {
+
+							citaAEliminar->anterior->siguiente = citaAEliminar->siguiente;
+							citaAEliminar->siguiente->anterior = citaAEliminar->anterior;
+
 						}
 
+						if (citaAEliminar == primerCita && citaAEliminar == últimaCita) {
+
+							citaAux = primerCita;
+
+							while (citaAux) {
+
+								if (citaAEliminar->numCita == citaAux->numCita) {
+									citaAux = nullptr;
+									primerCita = nullptr;
+								}
+
+								while (citaAux) {
+									citaAux = citaAux->siguiente;
+								}
+							}
+
+						}
+
+						delete citaAEliminar;
+
+						system("cls");
+
+						cout << "Cita eliminada correctamente.\n";
+
+						system("pause");
 					}
-
-					inputIncorrecto = false;
-					delete citaAEliminar;
-
-					system("cls");
-
-					cout << "Cita eliminada correctamente.\n";
-
-					system("pause");
-
-					system("cls");
 				}
+
+				inputIncorrecto = false;
+				system("cls");
 			}
 
 			break;
