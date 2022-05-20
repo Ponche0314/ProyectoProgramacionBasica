@@ -39,7 +39,7 @@ void registrarCita(string nomCliente, string fechaCita, string horaCita, int tra
 	nuevaCita->cantTrat = cantTrat;
 	nuevaCita->citaVigente = true;
 	
-	if (única_cita_se_eliminó == true){
+	if (única_cita_se_eliminó){
 		primerCita = nuevaCita;
 		últimaCita = nuevaCita;
 		única_cita_se_eliminó = false;
@@ -704,7 +704,7 @@ int main() {
 
 							}
 							
-							única_cita_se_eliminó == true;
+							única_cita_se_eliminó = true;
 						}
 
 						delete citaAEliminar;
