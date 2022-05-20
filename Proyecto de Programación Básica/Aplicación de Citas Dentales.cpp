@@ -160,7 +160,7 @@ void leerCitas() {
 		leerCitas.close();
 	}
 	else {
-		cout << "Error al crear el archivo de guardado.\n\n";
+		cout << "Error al leer el archivo de guardado.\n\n";
 	}
 
 
