@@ -7,7 +7,7 @@
 using namespace std;
 
 int opción = 0, prcUnit = 0, opciónTrat = 0, numCitaActual = 1, mod = 0, elim = 0;
-bool opciónválida = true, inputIncorrecto = false;
+bool opciónválida = true, inputIncorrecto = false, única_cita_se_eliminó = false;
 
 string nombrePacienteTemp, fechaCitaTemp, horaCitaTemp;
 int tratElegidoTemp, cantTratTemp;
@@ -38,8 +38,13 @@ void registrarCita(string nomCliente, string fechaCita, string horaCita, int tra
 	nuevaCita->tratElegido = tratElegido;
 	nuevaCita->cantTrat = cantTrat;
 	nuevaCita->citaVigente = true;
-
-	if (numCitaActual == 1) {
+	
+	if (única_cita_se_eliminó == true){
+		primerCita = nuevaCita;
+		últimaCita = nuevaCita;
+		única_cita_se_eliminó = false;
+	}
+	else if (numCitaActual == 1) {
 		primerCita = nuevaCita;
 		últimaCita = nuevaCita;
 	}
@@ -698,7 +703,8 @@ int main() {
 								}
 
 							}
-
+							
+							única_cita_se_eliminó == true;
 						}
 
 						delete citaAEliminar;
