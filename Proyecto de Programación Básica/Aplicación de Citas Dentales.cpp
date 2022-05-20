@@ -6,8 +6,8 @@
 
 using namespace std;
 
-int opciÛn = 0, prcUnit = 0, opciÛnTrat = 0, numCitaActual = 1, mod = 0, elim = 0;
-bool opciÛnv·lida = true, inputIncorrecto = false;
+int opci√≥n = 0, prcUnit = 0, opci√≥nTrat = 0, numCitaActual = 1, mod = 0, elim = 0;
+bool opci√≥nv√°lida = true, inputIncorrecto = false;
 
 string nombrePacienteTemp, fechaCitaTemp, horaCitaTemp;
 int tratElegidoTemp, cantTratTemp;
@@ -24,7 +24,7 @@ struct Cita {
 };
 
 Cita* primerCita = nullptr;
-Cita* ˙ltimaCita = nullptr;
+Cita* √∫ltimaCita = nullptr;
 Cita* citaAux = nullptr;
 
 void registrarCita(string nomCliente, string fechaCita, string horaCita, int tratElegido, int cantTrat) {
@@ -41,12 +41,12 @@ void registrarCita(string nomCliente, string fechaCita, string horaCita, int tra
 
 	if (numCitaActual == 1) {
 		primerCita = nuevaCita;
-		˙ltimaCita = nuevaCita;
+		√∫ltimaCita = nuevaCita;
 	}
 	else {
-		nuevaCita->anterior = ˙ltimaCita;
-		˙ltimaCita->siguiente = nuevaCita;
-		˙ltimaCita = nuevaCita;
+		nuevaCita->anterior = √∫ltimaCita;
+		√∫ltimaCita->siguiente = nuevaCita;
+		√∫ltimaCita = nuevaCita;
 	}
 	numCitaActual++;
 
@@ -62,7 +62,7 @@ void imprimirCitas() {
 	else {
 
 		while (citaAux) {
-			cout << "N˙mero de cita: " << setw(3) << setfill('0') << citaAux->numCita;
+			cout << "N√∫mero de cita: " << setw(3) << setfill('0') << citaAux->numCita;
 			cout << "\nNombre del paciente: " << citaAux->nomCliente;
 			cout << "\nFecha de la cita: " << citaAux->fechaCita;
 			cout << "\nHora de la cita: " << citaAux->horaCita;
@@ -71,44 +71,44 @@ void imprimirCitas() {
 			switch (citaAux->tratElegido) {
 			case 1: {
 				prcUnit = 150;
-				cout << "DiagnÛstico dental.\n";
-				cout << "DescripciÛn del tratamiento: En odontologÌa prevenir es curar. Un diagnÛstico a tiempo te ayudar· a evitar patologÌas dentales graves en el futuro.";
+				cout << "Diagn√≥stico dental.\n";
+				cout << "Descripci√≥n del tratamiento: En odontolog√≠a prevenir es curar. Un diagn√≥stico a tiempo te ayudar√° a evitar patolog√≠as dentales graves en el futuro.";
 				break;
 			}
 			case 2: {
 				prcUnit = 1500;
 				cout << "Blanqueamiento dental.\n";
-				cout << "DescripciÛn del tratamiento: El blanqueamiento dental es uno de los tratamientos estÈticos m·s seguros y eficaces, utilizado para aclarar los dientes de manera uniforme haciendo que tu dentadura se vea lo m·s blanca posible.";
+				cout << "Descripci√≥n del tratamiento: El blanqueamiento dental es uno de los tratamientos est√©ticos m√°s seguros y eficaces, utilizado para aclarar los dientes de manera uniforme haciendo que tu dentadura se vea lo m√°s blanca posible.";
 				break;
 			}
 			case 3: {
 				prcUnit = 800;
-				cout << "AplicaciÛn de coronas o carillas.\n";
-				cout << "DescripciÛn del tratamiento: Di adiÛs a los dientes daÒados, opta por nuestras coronas de zirconia y carillas dentales.";
+				cout << "Aplicaci√≥n de coronas o carillas.\n";
+				cout << "Descripci√≥n del tratamiento: Di adi√≥s a los dientes da√±ados, opta por nuestras coronas de zirconia y carillas dentales.";
 				break;
 			}
 			case 4: {
 				prcUnit = 1800;
 				cout << "Endodoncia.\n";
-				cout << "DescripciÛn del tratamiento: Una endodoncia consiste en la extracciÛn de la pulpa, un pequeÒo tejido situado en el centro del diente, cuando este es removido, el espacio restante se limpia, remoldea y rellena.";
+				cout << "Descripci√≥n del tratamiento: Una endodoncia consiste en la extracci√≥n de la pulpa, un peque√±o tejido situado en el centro del diente, cuando este es removido, el espacio restante se limpia, remoldea y rellena.";
 				break;
 			}
 			case 5: {
 				prcUnit = 2000;
 				cout << "Implantes dentales.\n";
-				cout << "DescripciÛn del tratamiento: RediseÒamos tu imagen y salud bucal con implantes dentales siendo la forma m·s natural de reponer un diente.";
+				cout << "Descripci√≥n del tratamiento: Redise√±amos tu imagen y salud bucal con implantes dentales siendo la forma m√°s natural de reponer un diente.";
 				break;
 			}
 			case 6: {
 				prcUnit = 1500;
 				cout << "Ortodoncia.\n";
-				cout << "DescripciÛn del tratamiento: La ortodoncia se encarga de corregir la posiciÛn de los dientes tomando en cuenta la estructura facial, estÈtica dental y la salud articular.";
+				cout << "Descripci√≥n del tratamiento: La ortodoncia se encarga de corregir la posici√≥n de los dientes tomando en cuenta la estructura facial, est√©tica dental y la salud articular.";
 				break;
 			}
 			case 7: {
 				prcUnit = 150;
 				cout << "Ajuste de brackets.\n";
-				cout << "DescripciÛn del tratamiento: Las sesiones de ajustes son necesarios para cambiar bandas el·sticas desgastadas, comprobar cÛmo evoluciona la dentadura y efectuar correcciones en los alambres.";
+				cout << "Descripci√≥n del tratamiento: Las sesiones de ajustes son necesarios para cambiar bandas el√°sticas desgastadas, comprobar c√≥mo evoluciona la dentadura y efectuar correcciones en los alambres.";
 				break;
 			}
 			}
@@ -212,7 +212,7 @@ void guardarCitas() {
 		}
 		else {
 			while (citaAux) {
-				guardarCitas << "N˙mero de cita: " << setw(3) << setfill('0') << citaAux->numCita;
+				guardarCitas << "N√∫mero de cita: " << setw(3) << setfill('0') << citaAux->numCita;
 				guardarCitas << "\nNombre del paciente: " << citaAux->nomCliente;
 				guardarCitas << "\nFecha de la cita: " << citaAux->fechaCita;
 				guardarCitas << "\nHora de la cita: " << citaAux->horaCita;
@@ -221,44 +221,44 @@ void guardarCitas() {
 				switch (citaAux->tratElegido) {
 				case 1: {
 					prcUnit = 150;
-					guardarCitas << "DiagnÛstico dental.\n";
-					guardarCitas << "DescripciÛn del tratamiento: En odontologÌa prevenir es curar. Un diagnÛstico a tiempo te ayudar· a evitar patologÌas dentales graves en el futuro.";
+					guardarCitas << "Diagn√≥stico dental.\n";
+					guardarCitas << "Descripci√≥n del tratamiento: En odontolog√≠a prevenir es curar. Un diagn√≥stico a tiempo te ayudar√° a evitar patolog√≠as dentales graves en el futuro.";
 					break;
 				}
 				case 2: {
 					prcUnit = 1500;
 					guardarCitas << "Blanqueamiento dental.\n";
-					guardarCitas << "DescripciÛn del tratamiento: El blanqueamiento dental es uno de los tratamientos estÈticos m·s seguros y eficaces, utilizado para aclarar los dientes de manera uniforme haciendo que tu dentadura se vea lo m·s blanca posible.";
+					guardarCitas << "Descripci√≥n del tratamiento: El blanqueamiento dental es uno de los tratamientos est√©ticos m√°s seguros y eficaces, utilizado para aclarar los dientes de manera uniforme haciendo que tu dentadura se vea lo m√°s blanca posible.";
 					break;
 				}
 				case 3: {
 					prcUnit = 800;
-					guardarCitas << "AplicaciÛn de coronas o carillas.\n";
-					guardarCitas << "DescripciÛn del tratamiento: Di adiÛs a los dientes daÒados, opta por nuestras coronas de zirconia y carillas dentales.";
+					guardarCitas << "Aplicaci√≥n de coronas o carillas.\n";
+					guardarCitas << "Descripci√≥n del tratamiento: Di adi√≥s a los dientes da√±ados, opta por nuestras coronas de zirconia y carillas dentales.";
 					break;
 				}
 				case 4: {
 					prcUnit = 1800;
 					guardarCitas << "Endodoncia.\n";
-					guardarCitas << "DescripciÛn del tratamiento: Una endodoncia consiste en la extracciÛn de la pulpa, un pequeÒo tejido situado en el centro del diente, cuando este es removido, el espacio restante se limpia, remoldea y rellena.";
+					guardarCitas << "Descripci√≥n del tratamiento: Una endodoncia consiste en la extracci√≥n de la pulpa, un peque√±o tejido situado en el centro del diente, cuando este es removido, el espacio restante se limpia, remoldea y rellena.";
 					break;
 				}
 				case 5: {
 					prcUnit = 2000;
 					guardarCitas << "Implantes dentales.\n";
-					guardarCitas << "DescripciÛn del tratamiento: RediseÒamos tu imagen y salud bucal con implantes dentales siendo la forma m·s natural de reponer un diente.";
+					guardarCitas << "Descripci√≥n del tratamiento: Redise√±amos tu imagen y salud bucal con implantes dentales siendo la forma m√°s natural de reponer un diente.";
 					break;
 				}
 				case 6: {
 					prcUnit = 1500;
 					guardarCitas << "Ortodoncia.\n";
-					guardarCitas << "DescripciÛn del tratamiento: La ortodoncia se encarga de corregir la posiciÛn de los dientes tomando en cuenta la estructura facial, estÈtica dental y la salud articular.";
+					guardarCitas << "Descripci√≥n del tratamiento: La ortodoncia se encarga de corregir la posici√≥n de los dientes tomando en cuenta la estructura facial, est√©tica dental y la salud articular.";
 					break;
 				}
 				case 7: {
 					prcUnit = 150;
 					guardarCitas << "Ajuste de brackets.\n";
-					guardarCitas << "DescripciÛn del tratamiento: Las sesiones de ajustes son necesarios para cambiar bandas el·sticas desgastadas, comprobar cÛmo evoluciona la dentadura y efectuar correcciones en los alambres.";
+					guardarCitas << "Descripci√≥n del tratamiento: Las sesiones de ajustes son necesarios para cambiar bandas el√°sticas desgastadas, comprobar c√≥mo evoluciona la dentadura y efectuar correcciones en los alambres.";
 					break;
 				}
 				}
@@ -287,115 +287,115 @@ int main() {
 	setlocale(LC_CTYPE, "Spanish");
 	leerCitas();
 
-	while (opciÛn != 5) {
+	while (opci√≥n != 5) {
 		cout << "Seleccione una de las siguientes opciones:\n\n";
 		cout << "1. Agendar cita.\n";
 		cout << "2. Modificar cita.\n";
 		cout << "3. Eliminar cita.\n";
 		cout << "4. Lista de citas vigentes.\n";
 		cout << "5. Salir.\n\n";
-		cout << "Digite una opciÛn: ";
-		cin >> opciÛn;
+		cout << "Digite una opci√≥n: ";
+		cin >> opci√≥n;
 
-		switch (opciÛn) {
+		switch (opci√≥n) {
 		case 1: {
 
 			system("cls");
 
-			cout << "N˙mero de cita: " << setw(3) << setfill('0') << numCitaActual;
+			cout << "N√∫mero de cita: " << setw(3) << setfill('0') << numCitaActual;
 			cout << "\n\nIntroduzca el nombre del paciente: ";
 			cin.ignore();
 			getline(cin, nombrePacienteTemp);
 			system("cls");
 
 
-			cout << "//SELECCI”N DE TRATAMIENTO//\n\n";
-			cout << "1. DiagnÛstico dental.\n";
-			cout << "DescripciÛn del tratamiento: En odontologÌa prevenir es curar. Un diagnÛstico a tiempo te ayudar· a evitar patologÌas dentales graves en el futuro.\n";
+			cout << "//SELECCI√ìN DE TRATAMIENTO//\n\n";
+			cout << "1. Diagn√≥stico dental.\n";
+			cout << "Descripci√≥n del tratamiento: En odontolog√≠a prevenir es curar. Un diagn√≥stico a tiempo te ayudar√° a evitar patolog√≠as dentales graves en el futuro.\n";
 			cout << "Precio unitario del tratamiento: 150 pesos.\n\n";
 
 			cout << "2. Blanqueamiento dental.\n";
-			cout << "DescripciÛn del tratamiento: El blanqueamiento dental es uno de los tratamientos estÈticos m·s seguros y eficaces, utilizado para aclarar los dientes de manera uniforme haciendo que tu dentadura se vea lo m·s blanca posible.\n";
+			cout << "Descripci√≥n del tratamiento: El blanqueamiento dental es uno de los tratamientos est√©ticos m√°s seguros y eficaces, utilizado para aclarar los dientes de manera uniforme haciendo que tu dentadura se vea lo m√°s blanca posible.\n";
 			cout << "Precio unitario del tratamiento: 1500 pesos.\n\n";
 
-			cout << "3. AplicaciÛn de coronas o carillas.\n";
-			cout << "DescripciÛn del tratamiento: Di adiÛs a los dientes daÒados, opta por nuestras coronas de zirconia y carillas dentales.\n";
+			cout << "3. Aplicaci√≥n de coronas o carillas.\n";
+			cout << "Descripci√≥n del tratamiento: Di adi√≥s a los dientes da√±ados, opta por nuestras coronas de zirconia y carillas dentales.\n";
 			cout << "Precio unitario del tratamiento: 800 pesos.\n\n";
 
 			cout << "4. Endodoncia.\n";
-			cout << "DescripciÛn del tratamiento: Una endodoncia consiste en la extracciÛn de la pulpa, un pequeÒo tejido situado en el centro del diente, cuando este es removido, el espacio restante se limpia, remoldea y rellena.\n";
+			cout << "Descripci√≥n del tratamiento: Una endodoncia consiste en la extracci√≥n de la pulpa, un peque√±o tejido situado en el centro del diente, cuando este es removido, el espacio restante se limpia, remoldea y rellena.\n";
 			cout << "Precio unitario del tratamiento: 1800 pesos.\n\n";
 
 			cout << "5. Implantes dentales.\n";
-			cout << "DescripciÛn del tratamiento: RediseÒamos tu imagen y salud bucal con implantes dentales siendo la forma m·s natural de reponer un diente.\n";
+			cout << "Descripci√≥n del tratamiento: Redise√±amos tu imagen y salud bucal con implantes dentales siendo la forma m√°s natural de reponer un diente.\n";
 			cout << "Precio unitario del tratamiento: 1800 pesos.\n\n";
 
 			cout << "6. Ortodoncia.\n";
-			cout << "DescripciÛn del tratamiento: La ortodoncia se encarga de corregir la posiciÛn de los dientes tomando en cuenta la estructura facial, estÈtica dental y la salud articular.\n";
+			cout << "Descripci√≥n del tratamiento: La ortodoncia se encarga de corregir la posici√≥n de los dientes tomando en cuenta la estructura facial, est√©tica dental y la salud articular.\n";
 			cout << "Precio unitario del tratamiento: 1500 pesos.\n\n";
 
 			cout << "7. Ajuste de brackets.\n";
-			cout << "DescripciÛn del tratamiento: Las sesiones de ajustes son necesarios para cambiar bandas el·sticas desgastadas, comprobar cÛmo evoluciona la dentadura y efectuar correcciones en los alambres.\n";
+			cout << "Descripci√≥n del tratamiento: Las sesiones de ajustes son necesarios para cambiar bandas el√°sticas desgastadas, comprobar c√≥mo evoluciona la dentadura y efectuar correcciones en los alambres.\n";
 			cout << "Precio unitario del tratamiento: 150 pesos.\n\n";
 
 			do {
 				cout << "Elija un tratamiento: ";
-				cin >> opciÛnTrat;
+				cin >> opci√≥nTrat;
 
-				switch (opciÛnTrat) {
+				switch (opci√≥nTrat) {
 				case 1: {
 					prcUnit = 150;
-					opciÛnv·lida = false;
+					opci√≥nv√°lida = false;
 					tratElegidoTemp = 1;
 					break;
 				}
 
 				case 2: {
 					prcUnit = 1500;
-					opciÛnv·lida = false;
+					opci√≥nv√°lida = false;
 					tratElegidoTemp = 2;
 					break;
 				}
 
 				case 3: {
 					prcUnit = 800;
-					opciÛnv·lida = false;
+					opci√≥nv√°lida = false;
 					tratElegidoTemp = 3;
 					break;
 				}
 
 				case 4: {
 					prcUnit = 1800;
-					opciÛnv·lida = false;
+					opci√≥nv√°lida = false;
 					tratElegidoTemp = 4;
 					break;
 				}
 
 				case 5: {
 					prcUnit = 1800;
-					opciÛnv·lida = false;
+					opci√≥nv√°lida = false;
 					tratElegidoTemp = 5;
 					break;
 				}
 
 				case 6: {
 					prcUnit = 1500;
-					opciÛnv·lida = false;
+					opci√≥nv√°lida = false;
 					tratElegidoTemp = 6;
 					break;
 				}
 
 				case 7: {
 					prcUnit = 150;
-					opciÛnv·lida = false;
+					opci√≥nv√°lida = false;
 					tratElegidoTemp = 7;
 					break;
 				}
 
-				default: cout << "\nDigite una opciÛn v·lida.";
+				default: cout << "\nDigite una opci√≥n v√°lida.";
 
 				}
-			} while (opciÛnv·lida);
+			} while (opci√≥nv√°lida);
 
 			cout << "\nIngrese cantidad del tratamiento: ";
 			cin >> cantTratTemp;
@@ -446,7 +446,7 @@ int main() {
 					citaAux = citaAux->siguiente;
 				}
 
-				cout << "Ingrese el n˙mero de cita que desee modificar (Digite '0' si desea volver al men˙ principal): ";
+				cout << "Ingrese el n√∫mero de cita que desee modificar (Digite '0' si desea volver al men√∫ principal): ";
 				cin >> mod;
 
 				if (mod != 0) {
@@ -467,22 +467,22 @@ int main() {
 					}
 
 					if (inputIncorrecto) {
-						cout << "\nIntroduza un n˙mero de cita de la lista proporcionada.\n";
+						cout << "\nIntroduza un n√∫mero de cita de la lista proporcionada.\n";
 						system("pause");
 						cout << "\n";
 					}
 					else {
-						cout << "\nElija quÈ dato de esa cita quiere modificar:\n\n";
+						cout << "\nElija qu√© dato de esa cita quiere modificar:\n\n";
 						cout << "1. Nombre del paciente.\n";
 						cout << "2. Fecha de la cita.\n";
 						cout << "3. Hora de la cita.\n";
 						cout << "4. Tratamiento elegido.\n";
 						cout << "5. Cantidad del tratamiento elegido.\n\n";
 
-						cout << "Digite una opciÛn: ";
-						cin >> opciÛn;
+						cout << "Digite una opci√≥n: ";
+						cin >> opci√≥n;
 
-						switch (opciÛn) {
+						switch (opci√≥n) {
 
 						case 1: {
 							system("cls");
@@ -510,85 +510,85 @@ int main() {
 						case 4: {
 							system("cls");
 
-							cout << "1. DiagnÛstico dental.\n";
-							cout << "DescripciÛn del tratamiento: En odontologÌa prevenir es curar. Un diagnÛstico a tiempo te ayudar· a evitar patologÌas dentales graves en el futuro.\n";
+							cout << "1. Diagn√≥stico dental.\n";
+							cout << "Descripci√≥n del tratamiento: En odontolog√≠a prevenir es curar. Un diagn√≥stico a tiempo te ayudar√° a evitar patolog√≠as dentales graves en el futuro.\n";
 							cout << "Precio unitario del tratamiento: 150 pesos.\n\n";
 
 							cout << "2. Blanqueamiento dental.\n";
-							cout << "DescripciÛn del tratamiento: El blanqueamiento dental es uno de los tratamientos estÈticos m·s seguros y eficaces, utilizado para aclarar los dientes de manera uniforme haciendo que tu dentadura se vea lo m·s blanca posible.\n";
+							cout << "Descripci√≥n del tratamiento: El blanqueamiento dental es uno de los tratamientos est√©ticos m√°s seguros y eficaces, utilizado para aclarar los dientes de manera uniforme haciendo que tu dentadura se vea lo m√°s blanca posible.\n";
 							cout << "Precio unitario del tratamiento: 1500 pesos.\n\n";
 
-							cout << "3. AplicaciÛn de coronas o carillas.\n";
-							cout << "DescripciÛn del tratamiento: Di adiÛs a los dientes daÒados, opta por nuestras coronas de zirconia y carillas dentales.\n";
+							cout << "3. Aplicaci√≥n de coronas o carillas.\n";
+							cout << "Descripci√≥n del tratamiento: Di adi√≥s a los dientes da√±ados, opta por nuestras coronas de zirconia y carillas dentales.\n";
 							cout << "Precio unitario del tratamiento: 800 pesos.\n\n";
 
 							cout << "4. Endodoncia.\n";
-							cout << "DescripciÛn del tratamiento: Una endodoncia consiste en la extracciÛn de la pulpa, un pequeÒo tejido situado en el centro del diente, cuando este es removido, el espacio restante se limpia, remoldea y rellena.\n";
+							cout << "Descripci√≥n del tratamiento: Una endodoncia consiste en la extracci√≥n de la pulpa, un peque√±o tejido situado en el centro del diente, cuando este es removido, el espacio restante se limpia, remoldea y rellena.\n";
 							cout << "Precio unitario del tratamiento: 1800 pesos.\n\n";
 
 							cout << "5. Implantes dentales.\n";
-							cout << "DescripciÛn del tratamiento: RediseÒamos tu imagen y salud bucal con implantes dentales siendo la forma m·s natural de reponer un diente.\n";
+							cout << "Descripci√≥n del tratamiento: Redise√±amos tu imagen y salud bucal con implantes dentales siendo la forma m√°s natural de reponer un diente.\n";
 							cout << "Precio unitario del tratamiento: 1800 pesos.\n\n";
 
 							cout << "6. Ortodoncia.\n";
-							cout << "DescripciÛn del tratamiento: La ortodoncia se encarga de corregir la posiciÛn de los dientes tomando en cuenta la estructura facial, estÈtica dental y la salud articular.\n";
+							cout << "Descripci√≥n del tratamiento: La ortodoncia se encarga de corregir la posici√≥n de los dientes tomando en cuenta la estructura facial, est√©tica dental y la salud articular.\n";
 							cout << "Precio unitario del tratamiento: 1500 pesos.\n\n";
 
 							cout << "7. Ajuste de brackets.\n";
-							cout << "DescripciÛn del tratamiento: Las sesiones de ajustes son necesarios para cambiar bandas el·sticas desgastadas, comprobar cÛmo evoluciona la dentadura y efectuar correcciones en los alambres.\n";
+							cout << "Descripci√≥n del tratamiento: Las sesiones de ajustes son necesarios para cambiar bandas el√°sticas desgastadas, comprobar c√≥mo evoluciona la dentadura y efectuar correcciones en los alambres.\n";
 							cout << "Precio unitario del tratamiento: 150 pesos.\n\n";
 
 							do {
 								cout << "Elija un tratamiento: ";
-								cin >> opciÛnTrat;
+								cin >> opci√≥nTrat;
 
-								switch (opciÛnTrat) {
+								switch (opci√≥nTrat) {
 								case 1: {
-									opciÛnv·lida = false;
+									opci√≥nv√°lida = false;
 									citaAModificar->tratElegido = 1;
 									break;
 								}
 
 								case 2: {
-									opciÛnv·lida = false;
+									opci√≥nv√°lida = false;
 									citaAModificar->tratElegido = 2;
 									break;
 								}
 
 								case 3: {
-									opciÛnv·lida = false;
+									opci√≥nv√°lida = false;
 									citaAModificar->tratElegido = 3;
 									break;
 								}
 
 								case 4: {
-									opciÛnv·lida = false;
+									opci√≥nv√°lida = false;
 									citaAModificar->tratElegido = 4;
 									break;
 								}
 
 								case 5: {
-									opciÛnv·lida = false;
+									opci√≥nv√°lida = false;
 									citaAModificar->tratElegido = 5;
 									break;
 								}
 
 								case 6: {
-									opciÛnv·lida = false;
+									opci√≥nv√°lida = false;
 									citaAModificar->tratElegido = 6;
 									break;
 								}
 
 								case 7: {
-									opciÛnv·lida = false;
+									opci√≥nv√°lida = false;
 									citaAModificar->tratElegido = 7;
 									break;
 								}
 
-								default: cout << "\nDigite una opciÛn v·lida.";
+								default: cout << "\nDigite una opci√≥n v√°lida.";
 
 								}
-							} while (opciÛnv·lida);
+							} while (opci√≥nv√°lida);
 
 							break;
 						}
@@ -601,7 +601,7 @@ int main() {
 						}
 
 						default:
-							cout << "\nIngrese un dÌgito v·lido.";
+							cout << "\nIngrese un d√≠gito v√°lido.";
 							system("pause");
 						}
 					}
@@ -638,7 +638,7 @@ int main() {
 					citaAux = citaAux->siguiente;
 				}
 
-				cout << "Ingrese el n˙mero de cita que desea eliminar (Digite '0' si desea volver al men˙ principal): ";
+				cout << "Ingrese el n√∫mero de cita que desea eliminar (Digite '0' si desea volver al men√∫ principal): ";
 				cin >> elim;
 
 				if (elim != 0) {
@@ -658,7 +658,7 @@ int main() {
 					}
 
 					if (inputIncorrecto) {
-						cout << "\nIntroduza un n˙mero de cita de la lista proporcionada.\n";
+						cout << "\nIntroduza un n√∫mero de cita de la lista proporcionada.\n";
 						system("pause");
 						cout << "\n";
 					}
@@ -671,10 +671,10 @@ int main() {
 							}
 
 						}
-						else if (citaAEliminar == ˙ltimaCita) {
+						else if (citaAEliminar == √∫ltimaCita) {
 
 							if (citaAEliminar->anterior) {
-								˙ltimaCita = citaAEliminar->anterior;
+								√∫ltimaCita = citaAEliminar->anterior;
 								citaAEliminar->anterior->siguiente = NULL;
 							}
 
@@ -686,7 +686,7 @@ int main() {
 
 						}
 
-						if (citaAEliminar == primerCita && citaAEliminar == ˙ltimaCita) {
+						if (citaAEliminar == primerCita && citaAEliminar == √∫ltimaCita) {
 
 							citaAux = primerCita;
 
@@ -697,9 +697,6 @@ int main() {
 									primerCita = nullptr;
 								}
 
-								while (citaAux) {
-									citaAux = citaAux->siguiente;
-								}
 							}
 
 						}
@@ -733,13 +730,13 @@ int main() {
 
 		}
 
-		default: cout << "\nDigite una opciÛn v·lida.\n\n";
+		default: cout << "\nDigite una opci√≥n v√°lida.\n\n";
 		}
 	}
 
 	system("cls");
 
-	cout << "°Gracias por utilizar el programa!\n";
+	cout << "¬°Gracias por utilizar el programa!\n";
 
 	guardarDatos();
 	guardarCitas();
